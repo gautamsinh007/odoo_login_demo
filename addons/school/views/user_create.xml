@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       
+        <!-- <template id="abcd" name="Auth Signup/ResetPassword form fields">
+
+
+        <form action="/test" role='form' method="POST" > 
+            <input type='hidden' name='csrf_token' t-att-value='request.csrf_token()'/>
+          
+
+            <div class="form-group field-role">
+                <label for="role"> Role</label>
+                <input type="text" name="role" id="role" class="form-control form-control-sm" required="required"/>
+            </div>  
+
+
+            <button type="submit" class="btn btn-primary">Create</button>
+
+            </form>
+
+
+        </template> -->
+
+        
+</odoo> 

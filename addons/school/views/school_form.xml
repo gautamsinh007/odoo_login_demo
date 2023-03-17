@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="schools_profile_form_view" model="ir.ui.view">
+
+        <field name="name">schools.profile.form.view</field>
+        <field name="model">school.profile</field>
+          <field name="arch" type='xml'>
+          
+
+                <form string="school Form">
+                     
+                        <sheet>      
+                        <group>
+                            <group>
+                                <field name="name"  required="1" />
+                                <field name="email" />
+                                <field name="phone"/>
+                                <field name="gender"/> 
+                            </group>
+                           </group>      
+                        </sheet>
+                           <!-- for chat if any changes and new data create the in below chat show changes -->
+                    </form>
+
+                    
+
+          </field>
+     </record>
+        <record id="school_profile_view_tree" model="ir.ui.view">
+             <field name="name">school_profile.view.tree</field>
+             <field name="model">school.profile</field>
+             <field name="arch" type="xml">   
+                 <tree string="school tree" >
+                        <field name="name"   />
+                        <field name="email" />
+                        <field name="phone"  />
+                        <field name="gender"/> 
+                 </tree>
+             </field>
+         </record>
+    
+    <record id="school_profile_action" model="ir.actions.act_window">
+        <field name="name">Scholl Form</field>
+        <field name="res_model">school.profile</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem
+        id="school_profile_menu"
+        name="school"
+        sequence="10"
+        />
+    <menuitem id="school_profile_submenu" name="School Data" action="school_profile_action" parent="school_profile_menu"/>
+    
+</odoo>
