@@ -34,7 +34,7 @@ class Newuser(models.Model):
     _inherit = "res.users"
    
     role = fields.Char(string="role")
-    
+        
 
     
 #     @api.model

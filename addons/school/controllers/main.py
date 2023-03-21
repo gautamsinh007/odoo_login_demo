@@ -125,7 +125,8 @@ class  signupcustom(AuthSignupHome):
         role =  kw['role']
         login = kw['login']
         password = kw['password']
-        request.env['res.users'].create({'role':role, 'login':login , 'password':password})
+        name  = kw['name']
+        request.env['res.users'].create({'role':role, 'login':login , 'password':password,'name':name})
         
         print('=\\\=====================================')
         p = request.session['names'] = 'abc'
@@ -134,6 +135,14 @@ class  signupcustom(AuthSignupHome):
         # response = super(signupcustom, self).web_auth_signup(*args, **kw)
         
         return 'data is created'
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
         
     
     # @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
