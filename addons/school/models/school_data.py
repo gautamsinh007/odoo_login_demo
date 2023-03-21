@@ -14,14 +14,28 @@ class Schoolmodel(models.Model):
     email = fields.Char(string="email")
     gender = fields.Selection([('male','Male'),('female','Female')],string='gender')
     phone = fields.Char(string='phone', readonly=True, defult="1334569874")
+    file  = fields.Binary(string='file')
 
 
 
-# class Newuser(models.Model):
+
+
+
+
+class Attechmentfiles(models.Model):
+    _name = 'attachment.files'
+    _description = "this is file add"
+
+    attachment =  fields.Binary(string='attachment')
     
-#     _inherit = "res.users"
-#     role = fields.Char(string="role")
+
+class Newuser(models.Model):
     
+    _inherit = "res.users"
+   
+    role = fields.Char(string="role")
+    
+
     
 #     @api.model
 #     def create(self, values):

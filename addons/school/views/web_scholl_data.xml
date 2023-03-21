@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+  <template id="sdata" name="hr Form">
+    <t t-call="website.layout">
+        <div id="wrap" class="oe_structure">
+        </div>
+        <div id="wrap" class="oe_structure">
+            <div class="container">
+                <div class="col-md-12">
+
+
+
+
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Experience</th>
+                   
+                          </tr>
+                        </thead>
+
+                          
+                        <t t-foreach="op" t-as="data">                                    
+                        <tbody>
+
+                          <tr>
+                            <th scope="row"> <t t-esc="data.id"/> </th>
+                            <td>    <t t-esc="data.name"/> </td>
+                            <td> <t t-esc="data.email"  /></td>
+                
+                            <td>   <t t-esc="data.phone"  /></td>
+                            <td>   <t t-esc="data.gender"  /> </td>
+                         
+                            <!-- <td>     <a t-attf-href="'data:file/pdf;base64,' +  data.file.decode('utf-8')"  alt="gautam" style="height:70px; width:auto"> resumes </a> </td> -->
+                            <td>  <a t-att-href="'data:application/pdf;base64,%s' %data.file" t-att-download="data.name"> resume</a> </td> 
+    
+                          </tr>
+                         
+
+                        </tbody>
+                    </t>
+
+
+                      </table>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+<div id="wrap" class="oe_structure">
+</div>
+</t>
+</template>
+
+
+</odoo>

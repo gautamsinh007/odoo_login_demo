@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
        
-        <!-- <template id="abcd" name="Auth Signup/ResetPassword form fields">
+     <template id="abcd" name="Auth Signup/ResetPassword form fields">
 
 
         <form action="/test" role='form' method="POST" > 
@@ -11,6 +11,17 @@
             <div class="form-group field-role">
                 <label for="role"> Role</label>
                 <input type="text" name="role" id="role" class="form-control form-control-sm" required="required"/>
+           
+                <label for="login"> Name</label>
+                <input type="text" name="login" id="login" class="form-control form-control-sm" required="required"/>
+           
+                
+                <label for="password"> Password</label>
+                <input type="password" name="password" id="password" class="form-control form-control-sm" required="required"/>
+           
+                
+                
+           
             </div>  
 
 
@@ -19,7 +30,7 @@
             </form>
 
 
-        </template> -->
+        </template> 
 
         
-</odoo> 
+</odoo>  

@@ -13,57 +13,63 @@
 
    <!-- we add code in git  -->
    
+   <template id="create_teacher" name="teacher Form">
 
-    <template id="create_teacher" name="teacher Form">
+    <t t-call="website.layout">
 
-        <t t-call="website.layout">
+        <div id='wrep' class='oe_structure'>
+        </div>
 
-            <div id='wrep' class='oe_structure'>
-            </div>
+        <div id="wrap" class="oe_structure">
+            <div class="container">
+                <div class="col-md-12">
 
-            <div id="wrap" class="oe_structure">
-                <div class="container">
-                    <div class="col-md-12">
+                      <form action="/teacher"   role='form'  method="POST"  enctype='multipart/form-data' > 
+                    <!-- #url/controller to called on the form action. -->
+                    <input type='hidden' name='csrf_token' t-att-value='request.csrf_token()'/>
+                        
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" name="name" t-att-value="name" id="name" required="true" />
+                         <!-- #label and id of the fields to be created in the form.These fields  should be present in the model for the entry of the data into the database.#           -->
+                        </div>
+                                        
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" name="email" 
+                            t-att-value="email"  id="email" required="true" />
+                        </div>
 
-                          <form action="/teacher" role='form' method="POST" > 
-                        <!-- #url/controller to called on the form action. -->
-                        <input type='hidden' name='csrf_token' t-att-value='request.csrf_token()'/>
-                            
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" name="name" t-att-value="name" id="name" required="true" />
-                             <!-- #label and id of the fields to be created in the form.These fields  should be present in the model for the entry of the data into the database.#           -->
-                            </div>
-                                            
-                            <div class="form-group">
-                                <label for="email">Email address:</label>
-                                <input type="email" class="form-control" name="email" 
-                                t-att-value="email"  id="email" required="true" />
-                            </div>
-    
-                            <div class="form-group">
-                                <label for="gender">gender :</label>
-                                <input type="gender" class="form-control" name="gender" 
-                                t-att-value="gender"  id="gender" required="true" />
-                            </div>
+                        <div class="form-group">
+                            <label for="gender">gender :</label>
+                            <input type="gender" class="form-control" name="gender" 
+                            t-att-value="gender"  id="gender" required="true" />
+                        </div>
 
-                            <div class="form-group">
-                                <label for="phone">phone :</label>
-                                <input type="text" class="form-control" name="phone" t-att-value="phone"  id="phone" required="true" />
-                            </div>
+                        <div class="form-group">
+                            <label for="phone">phone :</label>
+                            <input type="text" class="form-control" name="phone" t-att-value="phone"  id="phone" required="true" />
+                        </div>
 
-                            <button type="submit" class="btn btn-primary">Create</button>
+                        <div class="form-group">
+                            <label for="file">file :</label>
+                            <input type="file" class="form-control" name="file"   id="file"  />
+                
+                        </div>
 
-                        </form>
+                        <button type="submit" class="btn btn-primary">Create</button>
 
-                    </div>
+                    </form>
+
                 </div>
-              </div>
-
-              <div id='wrep' class='oe_structure'>
             </div>
+          </div>
 
-          </t>
-    </template>
+          <div id='wrep' class='oe_structure'>
+        </div>
+
+      </t>
+</template>
+
 
 </odoo>

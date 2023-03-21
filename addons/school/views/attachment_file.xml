@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+
+    <record id="send_attechments" model="ir.ui.view">
+
+        <field name="name">attachments.file.form.view</field>
+        <field name="model">attachment.files</field>
+          <field name="arch" type='xml'>
+          
+                <form string="resume send Form">
+    
+                        <sheet>  
+                              <group>
+                            <group>
+                            
+                                <field name="attachment"  widget='file'   required="1" class='oe_avatar' style="width:30px;" />
+                                
+                                <!-- <field name="selectresume"/> -->
+                                
+    
+                            </group>
+    
+                           </group>      
+    
+                        </sheet>
+                          
+                    </form>
+          </field>
+    
+    </record>
+         
+    <record id="attechemnts_file_view_tree" model="ir.ui.view">
+             <field name="name">attachments.file.departments.view.tree</field>
+             <field name="model">attachment.files</field>
+             <field name="arch" type="xml">
+                 
+                 <tree string="resume form tree">
+                     
+                  
+                   <field name="attachment" />
+    
+                 </tree>
+    
+             </field>
+         </record>  
+    
+    
+    <record id="send_resumes_action" model="ir.actions.act_window">
+        <field name="name">resume Form</field>
+        <field name="res_model">attachment.files</field>
+        <field name="view_mode">tree,form</field>
+     
+    </record>
+    
+    
+    
+    <menuitem id="resume_submenu" name="Resume-add" action="send_resumes_action" parent="school_profile_menu"/>
+    
+    
+</odoo>

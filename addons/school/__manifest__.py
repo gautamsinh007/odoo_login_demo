@@ -14,11 +14,15 @@
           'views/web_public_page.xml',
           'views/shop_custom_url.xml',
           "views/web_inherit_teacher_class.xml",
-          # 'views/user_add_fields.xml',
-          # 'views/user_create.xml'
+          'views/web_scholl_data.xml',
+          'views/attachment_file.xml',
+          'views/web_file.xml',
+          'views/user_add_fields.xml',
+          'views/user_create.xml'
           
          
          ],
+      
     'installable' : True,
     'application' : True,
     'auto_install' : False ,

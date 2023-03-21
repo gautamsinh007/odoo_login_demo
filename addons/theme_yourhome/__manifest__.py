@@ -14,6 +14,21 @@
     },
     
     'assets': {
+        
+        'web.assets_backend': [
+        # '/theme_yourhome/static /src/js/main.js',
+        
+        
+     
+         
+      ],
+        
+         'web.assets_frontend': [  
+           '/theme_yourhome/static/src/js/main.js',
+         
+      ],
+        
+      
       
      
       
