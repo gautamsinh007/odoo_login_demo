@@ -2,7 +2,7 @@ from odoo import fields , models , api,_
 # import  datetime 
 from odoo import exceptions
 from datetime import date, datetime
-
+from odoo.exceptions import ValidationError, UserError
 
 
 class Schoolmodel(models.Model):
@@ -35,7 +35,12 @@ class Newuser(models.Model):
    
     role = fields.Char(string="role")
         
-
+    # @api.constrains('name')
+    # def _check_unique_name(self):
+    #     product = self.search([('id', '!=', self.id) , ('login', '=ilike', self.name)])
+    #     print(product,"product_______")
+    #     if product:
+    #         raise ValidationError(_('name already exists!'))
     
 #     @api.model
 #     def create(self, values):

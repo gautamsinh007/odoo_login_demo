@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="login" name="login_check">
+
+    <form action="/logins"   role='form'  method="POST"  enctype='multipart/form-data' > 
+        <!-- #url/controller to called on the form action. -->
+            <input type='hidden' name='csrf_token' t-att-value='request.csrf_token()'/>
+                
+        <div class="form-group">
+            <label for="login">Email address:</label>
+            <input type="text" class="form-control" name="login" 
+            t-att-value="login"  id="login" required="true" />
+        </div>
+
+        <div class="form-group">
+            <label for="password">gender :</label>
+            <input type="password" class="form-control" name="password" 
+            t-att-value="password"  id="password" required="true" />
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Create</button>
+
+    </form>
+
+    </template>
+
+</odoo>

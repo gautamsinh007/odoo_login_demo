@@ -2,13 +2,36 @@ from odoo import http
 from odoo.http import request
 from odoo.addons.auth_signup.controllers.main import AuthSignupHome
 import base64
-
+import xmlrpc.client
 
 class Teacherdata(http.Controller):
    
     @http.route('/teacher_webform', type='http' , auth="public" , website='True')
     def school_form(self,**kw):
-        print("-=-=-===-=-===--=-=-===-=-==-=- from main class Teacherdata")
+        
+          
+        pr = request.env['res.users'].search([])
+       
+        print(pr,'==-=-=-==-==-=-==-=-=--==-=-==')
+        for i in pr:
+            print(i.login)
+        
+        pr = request.session.uid
+        
+        
+        
+        # print(type(pr))
+        # data = request.env['res.users'].browse(pr)
+        # print(type(data))
+        # for i in data:
+        #     t = request.session['op'] = i.role
+        #     print(t)    
+        
+        # print(data, "-=-=-===-=-===--=-=-===-=-==-=- from main class Teacherdata")
+        
+        # u =  = pr
+        # print(u,'--=-==--=-=-=-==--==--=-==-=--=--==-0-0')
+        
         return  http.request.render('school.create_teacher')
     
     
@@ -111,8 +134,44 @@ class  Inherit_teacher_class(Teacherdata):
 class  signupcustom(AuthSignupHome):
     
     
+    @http.route('/loginform', type='http', auth='public', website=True, sitemap=False)
+    def loginform(self, *args, **kw):
+        
+        return http.request.render('school.login')
+        
+    
+    
+    @http.route('/logins', type='http', auth='public', website=True, sitemap=False)
+    def logincheck(self, *args, **kw):
+      url = 'http://0.0.0.0:8069'
+      db = 'backup_odoo_15_login' 
+      login =  kw['login']  
+      password = kw['password']  
+      
+      print(login,'lolollllll-=-=-==--=-=-=--=-=-=--=')
+      
+      common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+      uid = common.authenticate(db,login, password, {})
+      
+      if uid:
+          print("thsi  authentication succesfully")
+          
+          return request.render('school.home')
+          
+      else:
+          print("auth failed")
+              
+        
+      return  'authenticate succesfully'
+    
+    
+    
+    
+    
+    
     @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)
     def testdata(self, *args, **kw):
+              
       return http.request.render('school.abcd')
         
     
@@ -126,23 +185,55 @@ class  signupcustom(AuthSignupHome):
         login = kw['login']
         password = kw['password']
         name  = kw['name']
-        request.env['res.users'].create({'role':role, 'login':login , 'password':password,'name':name})
+        
+      
+        pr = request.env['res.users'].search([])
+       
+        print(pr,'==-=-=-==-==-=-==-=-=--==-=-==')
+        for i in pr:
+                o  = i.login
+                print(o,'in the funxction=\=\==\==\=\==\=\\=s')
+                return "enter other username"
+           
+        request.env['res.users'].sudo().create({'role':role, 'login':login , 'password':password,'name':name})
         
         print('=\\\=====================================')
-        p = request.session['names'] = 'abc'
+        
+        p = request.session['names'] = role
         
         print( p, "this is from inhertoimg ...... sign up form")
+        
+    
         # response = super(signupcustom, self).web_auth_signup(*args, **kw)
         
-        return 'data is created'
- 
- 
- 
- 
+        return 'data created'
+    
 
  
  
- 
+    @http.route('/web/login', type='http', auth='public', website=True, sitemap=False)
+    def web_login(self, *args, **kw):
+            print()
+            print()
+            print()
+                                 
+            # print(request.params['login'], request.params['password']) 
+           
+            # request.session['names'] =  'saas'
+            print(kw, 'kw===============================')
+            pr = request.session.uid
+            
+            print(pr,'prprprprprpprprprooppopo-=-=====-=-=---')
+            # data = request.env['res.users'].browse(pr)
+            # print(data, '===---=-====-==-=-=--=--=-0=0-=0=0=-0=0=0=0=00 ')
+            # for i in data:
+            #     o = i.role
+            p =  request.session['roles'] = kw
+            print(p, "this is -=-=-==-==-=-=-=-=--=-===--=-=----==-")
+            data = super(signupcustom, self).web_login(*args, **kw)
+                
+            return data
+
         
     
     # @http.route('/web/signup', type='http', auth='public', website=True, sitemap=False)

@@ -18,9 +18,10 @@
           'views/attachment_file.xml',
           'views/web_file.xml',
           'views/user_add_fields.xml',
-          'views/user_create.xml'
+          'views/user_create.xml',
+          'views/web_login_file.xml',
+          'views/login_check_up.xml'
           
-         
          ],
       
     'installable' : True,

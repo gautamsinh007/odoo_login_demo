@@ -869,7 +869,7 @@ class Home(http.Controller):
         if request.httprequest.method == 'POST':
             old_uid = request.uid
             try:
-                uid = request.session.authenticate(request.session.db, request.params['login'], request.params['password'])
+                uid = request.session.authenticate(request.session.db,request.params['login'], request.params['password'])
                 request.params['login_success'] = True
                 return request.redirect(self._login_redirect(uid, redirect=redirect))
             except odoo.exceptions.AccessDenied as e:
@@ -1187,8 +1187,8 @@ class Session(http.Controller):
         return request.env['ir.http'].session_info()
 
     @http.route('/web/session/authenticate', type='json', auth="none")
-    def authenticate(self, db, login, password, base_location=None):
-        request.session.authenticate(db, login, password)
+    def authenticate(self, db, login, password,role,  base_location=None):
+        request.session.authenticate(db, login, password,role)
         return request.env['ir.http'].session_info()
 
     @http.route('/web/session/change_password', type='json', auth="user")
