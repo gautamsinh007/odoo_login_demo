@@ -5,7 +5,7 @@
     'sequence': 10,
     'version': '1.0',
     'depends': ['website'],
-    'data': ['views/hearder.xml' , 'views/new_page.xml' ],
+    'data': [],
     'images': [
        
     ],
@@ -23,10 +23,10 @@
          
       ],
         
-         'web.assets_frontend': [  
-           '/theme_yourhome/static/src/js/main.js',
+      #    'web.assets_frontend': [  
+      #      '/theme_yourhome/static/src/js/main.js',
          
-      ],
+      # ],
         
       
       

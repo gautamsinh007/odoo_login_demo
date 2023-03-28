@@ -852,6 +852,7 @@ class Home(http.Controller):
 
     @http.route('/web/login', type='http', auth="none")
     def web_login(self, redirect=None, **kw):
+        print(kw  ,"thsi  is from main function")
         ensure_db()
         request.params['login_success'] = False
         if request.httprequest.method == 'GET' and redirect and request.session.uid:

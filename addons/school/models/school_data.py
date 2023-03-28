@@ -19,9 +19,6 @@ class Schoolmodel(models.Model):
 
 
 
-
-
-
 class Attechmentfiles(models.Model):
     _name = 'attachment.files'
     _description = "this is file add"

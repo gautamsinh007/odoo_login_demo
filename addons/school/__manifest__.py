@@ -9,6 +9,7 @@
      #'image' : [ ]    add image path hear in thsi use images
       'data' : [
          "security/ir.model.access.csv",
+          'security/security.xml',
           "views/school_form.xml",
           'views/web_school.xml',
           'views/web_public_page.xml',
