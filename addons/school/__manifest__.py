@@ -21,7 +21,9 @@
           'views/user_add_fields.xml',
           'views/user_create.xml',
           'views/web_login_file.xml',
-          'views/login_check_up.xml'
+          'views/login_check_up.xml',
+          'views/attachments.xml',
+          'views/file_view.xml'
           
          ],
       

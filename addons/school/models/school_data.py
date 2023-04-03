@@ -22,7 +22,6 @@ class Schoolmodel(models.Model):
 class Attechmentfiles(models.Model):
     _name = 'attachment.files'
     _description = "this is file add"
-
     attachment =  fields.Binary(string='attachment')
     
 
@@ -31,7 +30,8 @@ class Newuser(models.Model):
     _inherit = "res.users"
    
     role = fields.Char(string="role")
-        
+    # lol = fields.char(string='lol') s  
+     
     # @api.constrains('name')
     # def _check_unique_name(self):
     #     product = self.search([('id', '!=', self.id) , ('login', '=ilike', self.name)])

@@ -67,6 +67,12 @@ class Teacherdata(http.Controller):
 
         return  http.request.render('school.detail')
     
+    
+    
+    @http.route('/att', type='http' , auth="public" , website='True')
+    def attt(self,**kw):
+         return  http.request.render('school.send_attechments')
+
 
     @http.route('/project/uploaded', type='http', auth="public", website=True)
     def upload_files(self, **post):
@@ -93,6 +99,11 @@ class Teacherdata(http.Controller):
             return request.render("modulename.template_to_render", value)
         
             # return "data created"
+            
+            
+            
+            
+            
     
 #=======----------=--=\--\--=-\--- Inherit controller and url  =-\-=\---------======================================= 
 
@@ -286,4 +297,35 @@ class  signupcustom(AuthSignupHome):
     
     
     
+class  Fileattechments(http.Controller):
     
+    @http.route('/abc', type='http', auth='public', website=True, sitemap=False)
+    def abc(self, *args, **kw):
+        return http.request.render('school.attechments')
+
+    @http.route('/attach', type='http', auth='public', website=True, sitemap=False)
+    def attechments_file(self, *args, **kw):
+            # data = request.env['attachment.files'].create(kw)
+            
+            files = request.httprequest.files.get("attachment").read()
+            print(files, '-=-=-=-=--=-=0-=-=-=-==')
+            resume = base64.b64encode(files)
+            print(resume, '-=-=-=-=-=-=-=-==\=\=\====')
+            bytes = resume.decode('utf8')
+            print(bytes, '-=-=-=-==---=-\-=\-\---=--=')
+            # print(files, 'ioioioioioioioopoppopop8909009090909090-=789789-=')
+            # resume = io.BytesIO(base64.b64decode(files))
+           
+            
+            
+            op = request.env['attachment.files'].create({'attachment':bytes})
+            print(op,'------=-==-=-=-=-=-=-=-==--=-=-=')
+            return "data is create ed"           
+
+
+    @http.route('/attach_view', type='http', auth='public', website=True, sitemap=False)
+    def aaa(self, *args, **kw):
+        
+        op = request.env['attachment.files'].search([])
+        
+        return http.request.render('school.datass' , {'op':op})

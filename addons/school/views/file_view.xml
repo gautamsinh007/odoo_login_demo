@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+
+    <template id="datass" name="file_view">
+
+        <t t-foreach="op" t-as="op">           
+                                
+                                
+            <tbody>
+
+              <tr>
+
+                
+              <!-- <td>  <img t-att-src="'op:attachment/png;base64,' +  data.attachment.decode('utf-8')"  alt="gautam" style="height:70px; width:auto" /> </td> -->
+              <a t-att-href="'data:application/pdf;base64,%s' %op.attachment.decode('utf-8')" t-att-download="op.attachment"> resume</a> 
+            </tr>
+             
+
+            </tbody>
+
+
+        </t>
+        
+    </template>
+
+</odoo>

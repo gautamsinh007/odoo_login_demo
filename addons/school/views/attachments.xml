@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="attechments" name="attechments">
+
+
+        <t t-call="website.layout">
+            <div id="wrap" class="oe_structure">
+                <div class="container">
+                    <div class="col-md-12">
+
+                        
+
+                        <form action="/attach"   role='form'  method="POST"  enctype='multipart/form-data' > 
+                            <!-- #url/controller to called on the form action. -->
+                            <input type='hidden' name='csrf_token' t-att-value='request.csrf_token()'/>
+
+
+                            <input type="file" class="form-control" name="attachment"   id="file"  />
+                            <button type="submit" class="btn btn-primary">Create</button>
+
+                           
+
+                        </form>
+                    </div>  
+                </div>
+              </div>
+
+              <div id="wrap" class="oe_structure">
+              </div>
+          </t>
+
+        
+    </template>
+
+</odoo>
